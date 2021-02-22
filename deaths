@@ -1,0 +1,5 @@
+timetodeath = 28
+df[['Total Deaths']] = df[['Total Deaths']][:-timetodeath]
+df[['New Deaths']] = df[['New Deaths']][:-timetodeath]
+df = df.fillna(value={'Total Deaths':0, 'New Deaths':0, 'R':0})
+df.drop(df.tail(timetodeath).index,inplace=True)
